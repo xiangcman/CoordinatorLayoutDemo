@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/AppFragment_AppBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:elevation="0dp">
+
+            <!--需要折叠的CollapsingToolbarLayout部分-->
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="@color/white"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <RelativeLayout
+                    android:id="@+id/linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_154"
+                    android:background="@mipmap/shelf_back"
+                    android:orientation="horizontal"
+                    app:layout_collapseMode="parallax"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RelativeLayout
+                        android:id="@+id/shelf_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dp_24"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/readTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:shadowDx="5"
+                                android:shadowDy="5"
+                                android:shadowRadius="5"
+                                android:text="12"
+                                android:textColor="@color/color0B192D"
+                                android:textSize="@dimen/text_35" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/read_tips"
+                                android:textColor="#ff5d636f"
+                                android:textSize="@dimen/text_13" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/signin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp_24"
+                            android:background="@drawable/sign_back"
+                            android:drawableLeft="@mipmap/signin"
+                            android:drawablePadding="@dimen/dp_5"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/dp_3"
+                            android:paddingTop="@dimen/dp_3"
+                            android:paddingRight="@dimen/dp_12"
+                            android:paddingBottom="@dimen/dp_3"
+                            android:text="@string/check_in"
+                            android:textColor="@color/colorFF448BFF" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/t_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_45"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetStart="0dp"
+                    app:layout_collapseMode="pin" />
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="0.05dp"
+                android:background="@color/colorCCCCCC" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <!--appbar_scrolling_view_behavior:该属性其实用的是appbarLayout中的behavior:AppBarLayout$ScrollingViewBehavior-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/show_shelf"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dp_12"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_centerInParent="true" />
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">书架</string>
+    <string name="check_in">签到</string>
+    <string name="read_tips">本周已读/分钟</string>
+    <string name="book_shelf">书架</string>
+</resources>
